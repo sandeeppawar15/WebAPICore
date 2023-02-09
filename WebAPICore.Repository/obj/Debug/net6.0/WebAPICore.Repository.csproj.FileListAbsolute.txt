@@ -1,0 +1,17 @@
+D:\Development\WebAPICore\WebAPICore.Repository\bin\Debug\net6.0\WebAPICore.Repository.deps.json
+D:\Development\WebAPICore\WebAPICore.Repository\bin\Debug\net6.0\WebAPICore.Repository.dll
+D:\Development\WebAPICore\WebAPICore.Repository\bin\Debug\net6.0\WebAPICore.Repository.pdb
+D:\Development\WebAPICore\WebAPICore.Repository\bin\Debug\net6.0\WebAPICore.Common.dll
+D:\Development\WebAPICore\WebAPICore.Repository\bin\Debug\net6.0\WebAPICore.Entity.dll
+D:\Development\WebAPICore\WebAPICore.Repository\bin\Debug\net6.0\WebAPICore.Common.pdb
+D:\Development\WebAPICore\WebAPICore.Repository\bin\Debug\net6.0\WebAPICore.Entity.pdb
+D:\Development\WebAPICore\WebAPICore.Repository\obj\Debug\net6.0\WebAPICore.Repository.csproj.AssemblyReference.cache
+D:\Development\WebAPICore\WebAPICore.Repository\obj\Debug\net6.0\WebAPICore.Repository.GeneratedMSBuildEditorConfig.editorconfig
+D:\Development\WebAPICore\WebAPICore.Repository\obj\Debug\net6.0\WebAPICore.Repository.AssemblyInfoInputs.cache
+D:\Development\WebAPICore\WebAPICore.Repository\obj\Debug\net6.0\WebAPICore.Repository.AssemblyInfo.cs
+D:\Development\WebAPICore\WebAPICore.Repository\obj\Debug\net6.0\WebAPICore.Repository.csproj.CoreCompileInputs.cache
+D:\Development\WebAPICore\WebAPICore.Repository\obj\Debug\net6.0\WebAPICore.Repository.csproj.CopyComplete
+D:\Development\WebAPICore\WebAPICore.Repository\obj\Debug\net6.0\WebAPICore.Repository.dll
+D:\Development\WebAPICore\WebAPICore.Repository\obj\Debug\net6.0\refint\WebAPICore.Repository.dll
+D:\Development\WebAPICore\WebAPICore.Repository\obj\Debug\net6.0\WebAPICore.Repository.pdb
+D:\Development\WebAPICore\WebAPICore.Repository\obj\Debug\net6.0\ref\WebAPICore.Repository.dll

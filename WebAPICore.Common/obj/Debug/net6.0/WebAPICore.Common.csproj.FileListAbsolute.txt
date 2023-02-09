@@ -1,0 +1,12 @@
+D:\Development\WebAPICore\WebAPICore.Common\bin\Debug\net6.0\WebAPICore.Common.deps.json
+D:\Development\WebAPICore\WebAPICore.Common\bin\Debug\net6.0\WebAPICore.Common.dll
+D:\Development\WebAPICore\WebAPICore.Common\bin\Debug\net6.0\WebAPICore.Common.pdb
+D:\Development\WebAPICore\WebAPICore.Common\obj\Debug\net6.0\WebAPICore.Common.csproj.AssemblyReference.cache
+D:\Development\WebAPICore\WebAPICore.Common\obj\Debug\net6.0\WebAPICore.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\Development\WebAPICore\WebAPICore.Common\obj\Debug\net6.0\WebAPICore.Common.AssemblyInfoInputs.cache
+D:\Development\WebAPICore\WebAPICore.Common\obj\Debug\net6.0\WebAPICore.Common.AssemblyInfo.cs
+D:\Development\WebAPICore\WebAPICore.Common\obj\Debug\net6.0\WebAPICore.Common.csproj.CoreCompileInputs.cache
+D:\Development\WebAPICore\WebAPICore.Common\obj\Debug\net6.0\WebAPICore.Common.dll
+D:\Development\WebAPICore\WebAPICore.Common\obj\Debug\net6.0\refint\WebAPICore.Common.dll
+D:\Development\WebAPICore\WebAPICore.Common\obj\Debug\net6.0\WebAPICore.Common.pdb
+D:\Development\WebAPICore\WebAPICore.Common\obj\Debug\net6.0\ref\WebAPICore.Common.dll
