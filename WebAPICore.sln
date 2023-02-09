@@ -5,11 +5,11 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPICore.API", "WebAPICore\WebAPICore.API.csproj", "{EF6E0DC9-DA45-4444-AC96-0B9565C23C3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPICore.Entity", "WebAPICore.Entity\WebAPICore.Entity.csproj", "{63C6FDDC-CE0F-47F9-A8E8-539EDDE32495}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPICore.Entity", "WebAPICore.Entity\WebAPICore.Entity.csproj", "{63C6FDDC-CE0F-47F9-A8E8-539EDDE32495}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPICore.Common", "WebAPICore.Common\WebAPICore.Common.csproj", "{F0C0F5A7-80DC-40AF-980D-F115465E9E5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPICore.Common", "WebAPICore.Common\WebAPICore.Common.csproj", "{F0C0F5A7-80DC-40AF-980D-F115465E9E5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPICore.Repository", "WebAPICore.Repository\WebAPICore.Repository.csproj", "{3C20DE66-290A-48F9-BE72-9C4623180831}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPICore.Repository", "WebAPICore.Repository\WebAPICore.Repository.csproj", "{3C20DE66-290A-48F9-BE72-9C4623180831}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

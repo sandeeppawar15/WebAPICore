@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebAPICore.Entity;
 using WebAPICore.Repository;
 
 namespace WebAPICore.API.Controllers
@@ -14,6 +15,21 @@ namespace WebAPICore.API.Controllers
             _userRepository = userRepository;
         }
 
-          
+
+        [HttpGet]
+        public IEnumerable<User> Get()
+        {
+            if (_userRepository.Get() == null)
+            {
+                return (IEnumerable<User>)NotFound();
+            }
+            return _userRepository.Get();
+        }
+
+        [HttpGet("{id}")]
+        public User Get(int id)
+        {
+            return _userRepository.Get(id);
+        }
     }
 }

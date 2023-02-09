@@ -18,7 +18,22 @@ namespace WebAPICore.Repository
 
         public List<User> Get()
         {
-            throw new NotImplementedException();
+            var users = _dbContext.Set<User>().ToList();
+            return users;
         }
+
+
+
+        public User? Get(int id)
+        {
+            var user = _dbContext.Find<User>(id);
+            if (user==null)
+            {
+                return null;
+            }
+            return user;
+        }
+
+    
     }
 }
