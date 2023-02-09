@@ -18,7 +18,7 @@ namespace WebAPICore.Repository
 
         public List<User> Get()
         {
-            return _dbContext.Database.Include(u => u.UserType).OrderByDescending(u => u.Id).ToList();
+            throw new NotImplementedException();
         }
     }
 }
