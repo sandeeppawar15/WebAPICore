@@ -11,9 +11,20 @@ namespace WebAPICore.Repository
     public class UserRepository : IUserRepository
     {
         internal DbContext _dbContext;
-        public UserRepository(DbContext dbContext)
+
+        internal WebAPICoreDbContext _webAPICoreDbContext;
+
+        public UserRepository(DbContext dbContext, WebAPICoreDbContext webAPICoreDbContext)
         {
             _dbContext = dbContext;
+            _webAPICoreDbContext = webAPICoreDbContext;
+        }   
+
+        public int Add(User user)
+        {
+            _dbContext.Add(user);
+            var result = _dbContext.SaveChanges();
+            return result;
         }
 
         public List<User> Get()

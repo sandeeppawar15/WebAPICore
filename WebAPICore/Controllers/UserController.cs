@@ -31,5 +31,12 @@ namespace WebAPICore.API.Controllers
         {
             return _userRepository.Get(id);
         }
+
+
+        [HttpPost]
+        public int Post(User user) {         
+             return _userRepository.Add(user);
+        }
+
     }
 }

@@ -11,5 +11,7 @@ namespace WebAPICore.Repository
     {
         List<User> Get();
         User Get(int id);
+
+        int Add(User user);
     }
 }
