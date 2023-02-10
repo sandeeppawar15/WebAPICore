@@ -29,7 +29,8 @@ namespace WebAPICore.Repository
 
         public List<User> Get()
         {
-            var users = _dbContext.Set<User>().ToList();
+            var users = _webAPICoreDbContext.Set<User>().ToList();
+            //var users = _dbContext.Set<User>().ToList();
             return users;
         }
 
