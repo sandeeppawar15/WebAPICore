@@ -16,27 +16,49 @@ namespace WebAPICore.API.Controllers
         }
 
 
-        [HttpGet]
-        public IEnumerable<User> Get()
-        {
-            if (_userRepository.Get() == null)
-            {
-                return (IEnumerable<User>)NotFound();
-            }
-            return _userRepository.Get();
-        }
+        //[HttpGet]
+        //public IEnumerable<User> Get()
+        //{
+        //    if (_userRepository.Get() == null)
+        //    {
+        //        return (IEnumerable<User>)NotFound();
+        //    }
+        //    return _userRepository.Get();
+        //}
+
+        //[HttpGet("{id}")]
+        //public User Get(int id)
+        //{
+        //    return _userRepository.Get(id);
+        //}
+
+
+        //[HttpPost]
+        //public int Post(User user)
+        //{
+        //    return _userRepository.Add(user);
+        //}
+
+
 
         [HttpGet("{id}")]
-        public User Get(int id)
+        public async Task<User> Get(int id) {
+
+            var result = await _userRepository.GetUser(id);
+            return result;
+        }
+
+
+
+        [HttpGet]
+        public async Task<IEnumerable<User>> Get()
         {
-            return _userRepository.Get(id);
+            var result = await _userRepository.GetUsers();
+            return result;
         }
 
 
-        [HttpPost]
-        public int Post(User user) {         
-             return _userRepository.Add(user);
-        }
 
     }
+
 }
