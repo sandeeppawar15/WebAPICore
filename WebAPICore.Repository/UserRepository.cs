@@ -55,5 +55,23 @@ namespace WebAPICore.Repository
         {
             return await _webAPICoreDbContext.User.Where(x => x.UserId == userId).FirstOrDefaultAsync();
         }
+
+        public async Task<User> UpdateUser(User user)
+        {
+            var result = await _webAPICoreDbContext.User.FirstOrDefaultAsync(u => u.UserId == user.UserId);
+            if (result != null)
+            {
+                result.UserName = user.UserName;
+                result.Status = user.Status;
+                result.UpdatedOn = DateTime.Now;
+                result.FirstName = user.FirstName;
+                result.LastName = user.LastName;
+
+                await _webAPICoreDbContext.SaveChangesAsync();
+                return result;
+
+            }
+            return null;
+        }
     }
 }

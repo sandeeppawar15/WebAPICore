@@ -42,7 +42,8 @@ namespace WebAPICore.API.Controllers
 
 
         [HttpGet("{id}")]
-        public async Task<User> Get(int id) {
+        public async Task<User> Get(int id)
+        {
 
             var result = await _userRepository.GetUser(id);
             return result;
@@ -57,6 +58,18 @@ namespace WebAPICore.API.Controllers
             return result;
         }
 
+        [HttpPut("{id:int}")]
+        public async Task<ActionResult<User>> Put(int id, User user)
+        {
+
+            var userArr= await _userRepository.GetUser(id);
+            if (userArr != null)
+            {
+                var result = await _userRepository.UpdateUser(user);
+                return result;
+            }
+            return NotFound($"User with Id = {id} not found");
+        }
 
 
     }
