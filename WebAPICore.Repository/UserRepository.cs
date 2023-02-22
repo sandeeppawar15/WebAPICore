@@ -53,7 +53,11 @@ namespace WebAPICore.Repository
 
         public async Task<User> GetUser(int userId)
         {
-            return await _webAPICoreDbContext.User.Where(x => x.UserId == userId).FirstOrDefaultAsync();
+            if (userId > 0)
+            {
+                return await _webAPICoreDbContext.User.Where(x => x.UserId == userId).FirstOrDefaultAsync();
+            }
+            return null;
         }
 
         public async Task<User> UpdateUser(User user)

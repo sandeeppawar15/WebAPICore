@@ -14,6 +14,6 @@ namespace WebAPICore.Repository
             base(options)
         { }
 
-        public DbSet<User>? User { get; set; }
+        public DbSet<User> User { get; set; }
     }
 }

@@ -42,35 +42,39 @@ namespace WebAPICore.API.Controllers
 
 
         [HttpGet("{id}")]
-        public async Task<User> Get(int id)
+        public async Task<ActionResult> Get(int id)
         {
-
-            var result = await _userRepository.GetUser(id);
-            return result;
+            if (id > 0)
+            {
+                var result = await _userRepository.GetUser(id);
+                return Ok(result);
+            }
+            return BadRequest();
         }
 
-
-
         [HttpGet]
-        public async Task<IEnumerable<User>> Get()
+        public async Task<ActionResult> Get()
         {
             var result = await _userRepository.GetUsers();
-            return result;
+            if (result.Count() > 0)
+            {
+                return Ok(result);
+            }
+            return NotFound();
         }
 
         [HttpPut("{id:int}")]
-        public async Task<ActionResult<User>> Put(int id, User user)
+        public async Task<ActionResult> Put(int id, User user)
         {
 
-            var userArr= await _userRepository.GetUser(id);
+            var userArr = await _userRepository.GetUser(id);
             if (userArr != null)
             {
                 var result = await _userRepository.UpdateUser(user);
-                return result;
+                return Ok(result);
             }
             return NotFound($"User with Id = {id} not found");
         }
-
 
     }
 
