@@ -15,65 +15,69 @@ namespace WebAPICore.API.Controllers
             _userRepository = userRepository;
         }
 
-
-        //[HttpGet]
-        //public IEnumerable<User> Get()
-        //{
-        //    if (_userRepository.Get() == null)
-        //    {
-        //        return (IEnumerable<User>)NotFound();
-        //    }
-        //    return _userRepository.Get();
-        //}
-
-        //[HttpGet("{id}")]
-        //public User Get(int id)
-        //{
-        //    return _userRepository.Get(id);
-        //}
-
-
-        //[HttpPost]
-        //public int Post(User user)
-        //{
-        //    return _userRepository.Add(user);
-        //}
-
-
-
         [HttpGet("{id}")]
-        public async Task<ActionResult> Get(int id)
+        public async Task<ActionResult<User>> Get(int id)
         {
-            if (id > 0)
+            try
             {
-                var result = await _userRepository.GetUser(id);
-                return Ok(result);
+                if (id > 0)
+                {
+                    var result = await _userRepository.GetUser(id);
+                    if (result == null)
+                    {
+                        return NotFound();
+                    }
+                    return Ok(result);
+                }
+                return BadRequest();
             }
-            return BadRequest();
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data from the database");
+            }
         }
 
         [HttpGet]
         public async Task<ActionResult> Get()
         {
-            var result = await _userRepository.GetUsers();
-            if (result.Count() > 0)
+            try
             {
+                var result = await _userRepository.GetUsers();
+                if (result.Count() < 0)
+                {
+                    return NotFound();
+                }
                 return Ok(result);
             }
-            return NotFound();
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data from the database");
+            }
+
+
         }
 
         [HttpPut("{id:int}")]
-        public async Task<ActionResult> Put(int id, User user)
+        public async Task<ActionResult<User>> Put(int id, User user)
         {
 
-            var userArr = await _userRepository.GetUser(id);
-            if (userArr != null)
+            try
             {
-                var result = await _userRepository.UpdateUser(user);
-                return Ok(result);
+                if (id != user.UserId)
+                    return BadRequest("Employee ID mismatch");
+
+                var userToUpdate = await _userRepository.GetUser(id);
+
+                if (userToUpdate == null)
+                    return NotFound($"User with Id = {id} not found");
+
+                return await _userRepository.UpdateUser(user);
             }
-            return NotFound($"User with Id = {id} not found");
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error updating data");
+            }
+
         }
 
     }

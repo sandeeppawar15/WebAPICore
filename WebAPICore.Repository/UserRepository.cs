@@ -20,44 +20,15 @@ namespace WebAPICore.Repository
             _webAPICoreDbContext = webAPICoreDbContext;
         }
 
-        //public int Add(User user)
-        //{
-        //    _dbContext.Add(user);
-        //    var result = _dbContext.SaveChanges();
-        //    return result;
-        //}
-
-        //public List<User> Get()
-        //{
-        //    var users = _webAPICoreDbContext.Set<User>().ToList();
-        //    //var users = _dbContext.Set<User>().ToList();
-        //    return users;
-        //}
-
-
-
-        //public User? Get(int id)
-        //{
-        //    var user = _dbContext.Find<User>(id);
-        //    if (user==null)
-        //    {
-        //        return null;
-        //    }
-        //    return user;
-        //}
 
         public async Task<IEnumerable<User>> GetUsers()
         {
-            return await _webAPICoreDbContext.Set<User>().ToListAsync();
+            return await _webAPICoreDbContext.User.ToListAsync();
         }
 
         public async Task<User> GetUser(int userId)
         {
-            if (userId > 0)
-            {
-                return await _webAPICoreDbContext.User.Where(x => x.UserId == userId).FirstOrDefaultAsync();
-            }
-            return null;
+            return await _webAPICoreDbContext.User.FirstOrDefaultAsync(x => x.UserId == userId);
         }
 
         public async Task<User> UpdateUser(User user)
@@ -70,6 +41,7 @@ namespace WebAPICore.Repository
                 result.UpdatedOn = DateTime.Now;
                 result.FirstName = user.FirstName;
                 result.LastName = user.LastName;
+                result.EmailId = user.EmailId;
 
                 await _webAPICoreDbContext.SaveChangesAsync();
                 return result;
