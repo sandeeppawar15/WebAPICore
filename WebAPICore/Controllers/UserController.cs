@@ -80,6 +80,29 @@ namespace WebAPICore.API.Controllers
 
         }
 
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult<User>> Delete(int id)
+        {
+
+            try
+            {
+                var userDelete = await _userRepository.GetUser(id);
+
+                if (userDelete == null)
+                {
+                    return NotFound($"User with Id = {id} not found");
+                }
+
+                return await _userRepository.DeleteUser(id);
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error deleting data");
+            }
+
+        }
+
+
     }
 
 }

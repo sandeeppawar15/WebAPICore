@@ -18,6 +18,6 @@ namespace WebAPICore.Repository
         Task<User> GetUser(int id);
         //Task<User> AddUser(User user);
         Task<User> UpdateUser(User user);
-        //void DeleteUser(int userId);
+        void DeleteUser(int userId);
     }
 }

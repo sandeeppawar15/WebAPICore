@@ -10,13 +10,13 @@ namespace WebAPICore.Repository
 {
     public class UserRepository : IUserRepository
     {
-        private DbContext _dbContext;
+        //private DbContext _dbContext;
 
         private WebAPICoreDbContext _webAPICoreDbContext;
 
         public UserRepository(DbContext dbContext, WebAPICoreDbContext webAPICoreDbContext)
         {
-            _dbContext = dbContext;
+            //_dbContext = dbContext;
             _webAPICoreDbContext = webAPICoreDbContext;
         }
 
@@ -49,5 +49,17 @@ namespace WebAPICore.Repository
             }
             return null;
         }
+
+        public async void DeleteUser(int userId)
+        {
+            var result = await _webAPICoreDbContext.User.FirstOrDefaultAsync(u => u.UserId == userId);
+
+            if (result != null)
+            {
+                _webAPICoreDbContext.User.Remove(result);
+                await _webAPICoreDbContext.SaveChangesAsync();
+            }
+        }
     }
 }
+
