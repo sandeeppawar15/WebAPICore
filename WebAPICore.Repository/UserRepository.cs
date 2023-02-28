@@ -50,7 +50,7 @@ namespace WebAPICore.Repository
             return null;
         }
 
-        public async void DeleteUser(int userId)
+        public async Task<User> DeleteUser(int userId)
         {
             var result = await _webAPICoreDbContext.User.FirstOrDefaultAsync(u => u.UserId == userId);
 
@@ -58,7 +58,9 @@ namespace WebAPICore.Repository
             {
                 _webAPICoreDbContext.User.Remove(result);
                 await _webAPICoreDbContext.SaveChangesAsync();
+                return result;
             }
+            return null;
         }
     }
 }

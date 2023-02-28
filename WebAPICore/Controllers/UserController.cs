@@ -99,10 +99,7 @@ namespace WebAPICore.API.Controllers
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Error deleting data");
             }
-
         }
-
-
     }
 
 }
