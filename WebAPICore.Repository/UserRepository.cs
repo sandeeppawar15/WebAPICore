@@ -62,6 +62,14 @@ namespace WebAPICore.Repository
             }
             return null;
         }
+
+        public async Task<User> AddUser(User user)
+        {
+            var result = await _webAPICoreDbContext.User.AddAsync(user);
+            await _webAPICoreDbContext.SaveChangesAsync();
+            return result.Entity;
+
+        }
     }
 }
 

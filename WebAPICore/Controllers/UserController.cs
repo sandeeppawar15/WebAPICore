@@ -64,7 +64,7 @@ namespace WebAPICore.API.Controllers
             try
             {
                 if (id != user.UserId)
-                    return BadRequest("Employee ID mismatch");
+                    return BadRequest("User ID mismatch");
 
                 var userToUpdate = await _userRepository.GetUser(id);
 
@@ -98,6 +98,27 @@ namespace WebAPICore.API.Controllers
             catch (Exception)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Error deleting data");
+            }
+        }
+
+
+        [HttpPost]
+        public async Task<ActionResult<User>> Add(User user)
+        {
+
+            try
+            {
+                if (User == null)
+                    return BadRequest();
+
+                var userToAdd = await _userRepository.AddUser(user);
+                return CreatedAtAction(nameof(Get),
+                new { id = userToAdd.UserId }, userToAdd);
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error creating new user record");
             }
         }
     }

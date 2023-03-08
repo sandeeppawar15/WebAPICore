@@ -9,14 +9,9 @@ namespace WebAPICore.Repository
 {
     public interface IUserRepository
     {
-        //List<User> Get();
-        //User Get(int id);
-
-        //int Add(User user);
-
         Task<IEnumerable<User>> GetUsers();
         Task<User> GetUser(int id);
-        //Task<User> AddUser(User user);
+        Task<User> AddUser(User user);
         Task<User> UpdateUser(User user);
         Task<User> DeleteUser(int userId);
     }
