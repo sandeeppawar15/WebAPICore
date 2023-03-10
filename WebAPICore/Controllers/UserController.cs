@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using WebAPICore.Entity;
 using WebAPICore.Repository;
 
@@ -14,6 +13,26 @@ namespace WebAPICore.API.Controllers
         {
             _userRepository = userRepository;
         }
+
+
+        [HttpGet]
+        public async Task<ActionResult> Get()
+        {
+            try
+            {
+                var result = await _userRepository.GetUsers();
+                if (result.Count() < 0)
+                {
+                    return NotFound();
+                }
+                return Ok(result);
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data from the database");
+            }
+        }
+
 
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> Get(int id)
@@ -37,25 +56,7 @@ namespace WebAPICore.API.Controllers
             }
         }
 
-        [HttpGet]
-        public async Task<ActionResult> Get()
-        {
-            try
-            {
-                var result = await _userRepository.GetUsers();
-                if (result.Count() < 0)
-                {
-                    return NotFound();
-                }
-                return Ok(result);
-            }
-            catch (Exception)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data from the database");
-            }
 
-
-        }
 
         [HttpPut("{id:int}")]
         public async Task<ActionResult<User>> Put(int id, User user)
@@ -117,7 +118,6 @@ namespace WebAPICore.API.Controllers
             }
             catch (Exception)
             {
-
                 return StatusCode(StatusCodes.Status500InternalServerError, "Error creating new user record");
             }
         }

@@ -1,0 +1,20 @@
+9 Mar
+----------------
+When there is no record available add no record found message in response.
+================================
+
+Project reference linking under solution - Repository pattern
+-----------------------
+
+WebAPICore.API        - WebAPICore.Entity/WebAPICore.Repository
+WebAPICore.Common     - 
+WebAPICore.Entity     - 
+WebAPICore.Repository - WebAPICore.Entity/WebAPICore.Common
+=====================================
+
+FirstOrDefaultAsync - Async meaning/use
+in Program.cs we have to define the mapping of Interface and class which implement that interface 
+e.g. - builder.Services.AddScoped<IUserRepository,UserRepository>();
+
+
+
