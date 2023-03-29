@@ -1,11 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using WebAPICore.Entity;
 using WebAPICore.Repository;
 
 namespace WebAPICore.API.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
+    [ApiController]    
     public class UserController : ControllerBase
     {
         public readonly IUserRepository _userRepository;

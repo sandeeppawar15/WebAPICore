@@ -15,6 +15,27 @@ WebAPICore.Repository - WebAPICore.Entity/WebAPICore.Common
 FirstOrDefaultAsync - Async meaning/use
 in Program.cs we have to define the mapping of Interface and class which implement that interface 
 e.g. - builder.Services.AddScoped<IUserRepository,UserRepository>();
+in this, UserRepository class implement the IUserRepository inteface
+
+================================================================================================
+How do you fix no Access-Control allow Origin header is present on the requested resource?
+>>
+Add below code into "Program.cs" file
+builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
+{
+    builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+}));
+app.UseCors("corsapp");
+================================================================================================
+13 Mar 2023 - Steps to integrate JWT (JSON Web Token) token in Web API Using .Net 6.0, Asp.Net Core
+
+JWT consists of three parts:
+
+- Header: encoded data of the token type and the algorithm used to sign the data.
+- Payload: encoded data of claims intended to share.
+- Signature: created by signing (encoded header + encoded payload) using a secret key.
+
+=> Install-Package Microsoft.AspNetCore.Authentication.JwtBearer
 
 
 
